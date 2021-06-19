@@ -1,0 +1,20 @@
+
+i/p=1234
+o/p=2143 
+algo= arrange the array like a1<=a2 a3<=a4
+
+
+void convertToWave(int *arr, int n){
+        
+        // Your code here
+        int i;
+        for(i=0;i<n-1;i=i+2)
+        {
+            if(arr[i+1]>arr[i])
+            {
+                swap(arr[i+1],arr[i]);
+            }
+        }
+        
+        
+    }
