@@ -2,7 +2,7 @@ ques- find the maxm ones in a row
 
 //time complexity o(nxm)-Brute force
 //time complexity o(mlogn) -Binary Search
-//time complexuty o(m+n)
+//time complexity o(m+n)
 //array matrix is already given in q
 int solve(int R,int C){
         //code here
