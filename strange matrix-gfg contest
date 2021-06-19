@@ -1,0 +1,26 @@
+ques- find the maxm ones in a row
+
+//time complexity o(nxm)-Brute force
+//time complexity o(mlogn) -Binary Search
+//time complexuty o(m+n)
+//array matrix is already given in q
+int solve(int R,int C){
+        //code here
+ int j;
+ int r=0;
+ j=C-1;
+ while(j>=0 && get(0,j)==1)
+ {
+     j--;
+ }
+    for (int i = 1; i < R; i++) {
+          while(j>=0 && get(i,j)==1)// no need to repeat so go to next index and previous column to check one
+          {
+              j=j-1;
+              r=i;
+          }
+      
+    }
+    return r;
+
+}
