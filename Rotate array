@@ -1,0 +1,25 @@
+Input:
+N = 5, D = 2
+arr[] = {1,2,3,4,5}
+Output: 3 4 5 1 2
+
+Using Reverse algorithm
+
+
+void rotateArr(int arr[], int d, int n){
+        // code here
+        int i,j;
+        for(i=0,j=d-1;i<j,j>i;i++,j--)
+        {
+            swap(arr[i],arr[j]);
+        }
+        for(i=d,j=n-1;i<j,j>i;i++,j--)
+        {
+            swap(arr[i],arr[j]);
+        }
+        for(i=0,j=n-1;i<j,j>i;i++,j--)
+        {
+            swap(arr[i],arr[j]);
+        }
+        
+    }
