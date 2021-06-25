@@ -1,0 +1,62 @@
+ string longestCommonPrefix (string arr[], int N)
+    {
+        // your code here
+        int mn=INT_MAX;
+        int mx=INT_MIN;
+        int i,j,k,t,p;
+        string s;
+        int count;
+        for(i=0;i<N;i++)
+        {
+            if(mn>arr[i].size())
+            {
+                mn=arr[i].size();
+               
+                t=i;
+            }
+             if(mx<arr[i].size())
+            {
+                mx=arr[i].size();
+               
+               
+            }
+        }
+        int res=INT_MAX;
+        for(i=0;i<N;i++)
+        {
+            count=0;
+            k=t;
+            for(j=0;j<arr[i].size();j++)
+            {
+               if(arr[i][j]!=arr[k][j]) 
+               {
+                   break;
+               }
+               else
+               {
+                  count++;
+                  
+               }
+               
+               
+            }
+            if(res>count)
+            {
+                res=count;
+            }
+        }
+        k=t;
+      if(res==0)
+      {
+          return "-1";
+      }
+            for(j=0;j<res;j++)
+            {
+            s.push_back(arr[k][j]);
+            }
+            return s;
+            
+        
+        
+        
+    }
