@@ -1,0 +1,24 @@
+ string reverseWords(string S) 
+    { 
+        // code here 
+        int j;
+        int i,k;
+        reverse(S.begin(),S.end());
+        S.push_back('.');
+        j=0;
+        i=0;
+       
+        while(i<S.length())
+        {
+            if(S[i]=='.')
+            {
+                reverse(S.begin()+j,S.begin()+i);
+                
+                j=i+1;
+            }
+            i++;
+        }
+        
+        S.pop_back();
+        return S;
+    } 
