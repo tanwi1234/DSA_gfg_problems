@@ -1,0 +1,97 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<bits/stdc++.h>
+#define mx 10
+using namespace std;
+
+class Stack{
+    
+    public:
+    int top =-1;
+    int a[mx];
+     bool isEmpty();
+     bool isFull();
+     void push(int x);
+     int peek();
+     int pop();
+    
+     
+};
+bool Stack:: isEmpty()
+{
+    if(top==-1)
+    {
+        return 1;
+    }
+    return 0;
+}
+bool Stack::isFull()
+{
+    if(top==mx-1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+void Stack::push(int x)
+{
+    if(isFull())
+    {
+        cout<<"full stack";
+        
+    }
+    else
+    {  top++;
+        a[top]=x;
+    }
+    
+}
+int Stack:: pop()
+{
+    if(isEmpty())
+    {
+        cout<<"Empty stack";
+    }
+    else
+    {
+        int x=a[top--];
+        return x;
+    }
+    
+}
+int Stack::peek()
+{
+    if(isEmpty())
+    {
+        cout<<"Empty stack";
+        return 0;
+    }
+    else
+    {
+        int x=a[top];
+        return x;
+        
+    }
+}
+
+int main() {
+    Stack st;
+    st.push(10);
+    st.push(20);
+    st.push(30);
+   st.push(40);
+   st.pop();
+ while(!st.isEmpty())
+ {
+     cout<<st.peek();
+     st.pop();
+    
+ }
+    
+    
+
+    return 0;
+}
