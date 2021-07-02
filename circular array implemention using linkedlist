@@ -1,0 +1,86 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#define mxx 5
+using namespace std;
+class Stack
+{
+    public:
+    Stack* s;
+    int data;
+    Stack* next;
+    Stack* front=0;
+    Stack* rear=0;
+   
+    void enqueue(int x)
+    {
+        Stack* newnode= new Stack();
+        newnode->data=x;
+        newnode->next=NULL;
+        if(front==0 && rear==0)
+        {
+            front=rear=newnode;
+           rear->next=newnode;
+        }
+       
+        else
+        {
+            rear->next=newnode;
+            rear=newnode;
+            rear->next=front;
+            
+        }
+        
+    }
+    void dequeue()
+    {
+        Stack* temp=front;
+        if(front==0 && rear==0)
+        {
+            cout<<"empty";
+        }
+        else if(front==rear)
+        {
+            front=0;
+            rear=0;
+            free(temp);
+        }
+        else
+        {
+           front=front->next;
+           rear->next=front;
+           free(temp);
+           
+        }
+       
+        
+    }
+    void display()
+    {
+        Stack*temp=front;
+        if(front==0 && rear==0)
+        {
+            cout<<"empty";
+        }
+        else
+        {
+        while(temp->next!=front)
+        {
+            cout<<temp->data;
+           temp=temp->next;
+        }
+        cout<<temp->data;
+        }
+      
+    }
+};
+int main() {
+    Stack s;
+    s.enqueue(15);
+     s.enqueue(15);
+      s.enqueue(15);
+       s.dequeue();
+        s.enqueue(15);
+         s.dequeue();
+         s.display();
+    
+}
