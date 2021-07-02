@@ -1,0 +1,125 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<bits/stdc++.h>
+#define mxx 5
+using namespace std;
+class Stack
+{
+    public:
+   
+    int top1=-1;
+    int top2=-1;
+    int s1[mxx];
+    int s2[mxx];
+     int count=0;
+    void push1(int x)
+    {
+       
+        
+        if(top1==mxx-1)
+        {
+            cout<<"full";
+        }
+        else
+        {
+            top1++;
+            s1[top1]=x;
+           
+        }
+    }
+     void push2(int x)
+    {
+        
+        
+        if(top2==mxx-1)
+        {
+            cout<<"full";
+        }
+        else
+        {
+            top2++;
+            s2[top2]=x;
+           
+        }
+    }
+    int pop1()
+    {
+        if(top1==-1)
+        {
+            cout<<"empty";
+        }
+        else
+        {
+            int x= s1[top1];
+            
+            top1--;
+             return x;
+           
+        }
+    }
+     int pop2()
+    {
+        if(top2==-1)
+        {
+            cout<<"empty";
+        }
+        else
+        {
+            int x= s2[top2];
+            
+            top2--;
+             return x;
+           
+        }
+    }
+    void enqueue(int x)
+    {
+        
+        push1(x);
+        count++;
+    }
+    void dequeue()
+    {
+        int a,b,i;
+        if(top1==-1 && top2==-1)
+        {
+            cout<<"empty";
+        }
+        else
+        {
+        for(i=0;i<count;i++)
+        {
+            a=pop1();
+            push2(a);
+        }
+        b=pop2();
+        count--;
+        for( i=0;i<count;i++)
+        {
+            a=pop2();
+            push1(a);
+        }
+        }
+    }
+   
+    void display()
+    {
+        int i;
+     for(i=0;i<=top1;i++)
+      {
+          cout<<s1[i];
+      }
+      
+    }
+};
+int main() {
+    Stack s;
+    s.enqueue(4);
+     s.enqueue(5);
+      s.enqueue(6);
+       s.dequeue();
+        
+         
+         s.display();
+    
+}
