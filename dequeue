@@ -1,0 +1,143 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#define mxx 5
+using namespace std;
+class Stack
+{
+    public:
+   
+    int front=-1;
+    int rear=-1;
+   int a[mxx];
+    void enqueuefront(int x)
+    {
+        
+        if(front==-1 && rear==-1)
+        {
+           front=0;
+           rear=0;
+           a[front]=x;
+        }
+        else if(front==0 && rear==mxx-1)
+        {
+            cout<<"full";
+        }
+        else if(front==0)
+        {
+            front=mxx-1;
+            a[front]=x;
+        }
+        else
+        {
+            front--;
+            a[front]=x;
+        }
+    }
+    void enqueuerear(int x)
+    {
+        
+        if(front==-1 && rear==-1)
+        {
+           front=0;
+           rear=0;
+           a[rear]=x;
+        }
+        else if(front==0 && rear==mxx-1)
+        {
+            cout<<"full";
+        }
+        else if(rear==mxx-1)
+        {
+            rear=0;
+            a[rear]=x;
+        }
+        else
+        {
+            rear++;
+            a[rear]=x;
+        }
+    }
+    void dequeuefront()
+    {
+       
+        if(front==-1 && rear==-1)
+        {
+            cout<<"empty";
+        }
+        else if(front>=rear)
+        {
+            front=-1;
+            rear=-1;
+            
+        }
+        else if(front==mxx-1)
+        {
+            front=0;
+        }
+        else
+        {
+           front++;
+           
+        }
+       
+        
+    }
+      void dequeuerear()
+    {
+       
+        if(front==-1 && rear==-1)
+        {
+            cout<<"empty";
+        }
+        else if(front>=rear)
+        {
+            front=-1;
+            rear=-1;
+            
+        }
+        else if(rear==0)
+        {
+            rear=mxx-1;
+        }
+        else
+        {
+           rear--;
+           
+        }
+       
+        
+    }
+    void display()
+    {
+      int i=front;
+        if(front==0 && rear==0)
+        {
+            cout<<"empty";
+        }
+        else
+        {
+        while(i!=rear)
+        {
+            cout<<a[i];
+           i=(i+1)%mxx;
+        }
+        cout<<a[i];
+        }
+      
+    }
+};
+int main() {
+    Stack s;
+    s.enqueuerear(4);
+     s.enqueuerear(5);
+      s.enqueuerear(6);
+       s.dequeuefront();
+        s.enqueuerear(15);
+         s.enqueuerear(16);
+        s.dequeuefront();
+         s.enqueuefront(18);
+           s.enqueuerear(19);
+         
+         s.display();
+    
+}
