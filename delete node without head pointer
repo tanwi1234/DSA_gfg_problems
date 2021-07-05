@@ -1,0 +1,8 @@
+void deleteNode(Node *del)
+    {
+       // Your code here
+       Node*temp=del->next;
+       swap(del->data,temp->data);
+       del->next=temp->next;
+      
+    }
