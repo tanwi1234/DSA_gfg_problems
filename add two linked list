@@ -1,0 +1,35 @@
+ ListNode* addTwoNumbers(ListNode* temp1, ListNode* temp2) {
+        
+        
+         // code here
+        
+       
+        int carry=0;
+       ListNode* dummy= new ListNode();
+       ListNode* temp= dummy;
+        
+        while(temp1!=NULL || temp2!=NULL||carry)
+        {
+            int sum=0;
+            if(temp1!=NULL)
+            {
+                sum=sum+temp1->val;
+                temp1=temp1->next;
+            }
+            
+            if(temp2!=NULL)
+            {
+                sum=sum+temp2->val;
+                temp2=temp2->next;
+            }
+            sum=sum+carry;
+            carry=sum/10;
+          
+            temp->next= new ListNode(sum%10);
+            temp=temp->next;
+            
+        
+        }
+       return dummy->next;
+        
+    }
