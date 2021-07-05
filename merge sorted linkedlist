@@ -1,0 +1,60 @@
+Node* sortedMerge(Node* head1, Node* head2)  
+{  
+    // code here
+   
+    Node*sorted;
+    if(head1==NULL)
+    {
+        return head2;
+    }
+    else if(head2==NULL)
+    {
+        return head1;
+    }
+    
+    else if(head1 && head2)
+    {
+        if(head1->data>head2->data)
+        {
+            sorted=head2;
+            head2=sorted->next;
+            
+        }
+        else
+        {
+            sorted=head1;
+            head1=sorted->next;
+        }
+    }
+    Node* newnode=sorted;
+    
+    while(head1!=NULL && head2!=NULL)
+    {
+        if(head1->data>head2->data)
+        {
+            sorted->next=head2;
+            sorted=head2;
+            head2=sorted->next;
+            
+            
+        }
+        else if(head1->data<=head2->data)
+        {
+             sorted->next=head1;
+            sorted=head1;
+            head1=sorted->next;
+        }
+    }
+    if(head1==NULL)
+    {
+        sorted->next=head2;
+    }
+    else
+    {
+        sorted->next=head1;
+    }
+    
+    return newnode;
+    
+    
+}  
