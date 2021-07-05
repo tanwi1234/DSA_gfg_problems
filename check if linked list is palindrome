@@ -1,0 +1,42 @@
+bool isPalindrome(Node *head)
+    {
+        //Your code here
+       
+        Node* temp1=head;
+          Node*fast=head;
+   Node*slow=head;
+   while(fast->next!=NULL && fast->next->next!=NULL)
+   {
+       fast=fast->next->next;
+       slow=slow->next;
+       
+   }
+      
+       
+        Node* newnode=slow->next;
+        Node* currnode=slow->next;
+        Node*prev=NULL;
+        while(newnode!=NULL)
+        {
+            newnode=newnode->next;
+            currnode->next=prev;
+            prev=currnode;
+            currnode=newnode;
+        }
+        slow->next=prev;
+        Node*temp=slow->next;
+        while(temp!=NULL)
+        {
+            if(temp1->data!=temp->data)
+            {
+                return 0;
+            }
+           
+                temp1=temp1->next;
+                temp=temp->next;
+              
+            
+            
+        }
+        return 1;
+    }
